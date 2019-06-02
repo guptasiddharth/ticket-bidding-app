@@ -1,0 +1,107 @@
+.navbar{
+	margin-bottom: 0;
+	border: 0;
+}
+
+.jumbotron{
+	background: #e7e7e7;
+}
+
+.container{
+	display: inline-block;	
+	padding-top: 20px
+}
+.navbar-brand{
+	display: inline-block;
+	padding-top: 12px !important;
+    font-size: 18px !important;
+}
+
+
+
+body {
+  width: 100%;
+  height: 700px;
+  margin: 0;
+  padding: 0;
+}
+#root1 {
+  width: 500px;
+  margin: auto;
+  margin-top: 10%;
+  font-family: 'Roboto', sans-serif;
+}
+#signup, #login {
+  width: 100%;
+  background: #2c3e50;
+}
+
+#signup {
+	height: 260px;
+}
+
+#login {
+  height: 155px;
+}
+.yellow {
+  background-color: gold;
+}
+#buttons {
+  height: 100px;
+  background: #2c3e50;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+#buttons > p {
+  width: 49.95%;
+  float: left;
+  color: white;
+  text-align: center;
+  padding-top: 25px;
+  height: 75%;
+  margin: 0;
+}
+#buttons > p:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+  cursor: pointer;
+}
+#signup > input, #signup > button {
+  margin-top: 20px;
+  margin-left: 105px;
+  height: 25px;
+  border: none;
+  border-radius: 2px;
+}
+#login > #username, #login > #password, #login > button {
+  width: 250px;
+  margin-left: 125px !important;
+  margin-top: 20px;
+  height: 25px;
+}
+.loginform,.signupform {
+	text-align:center;
+}
+input {
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-top: 1px !important;
+    padding: 2px;
+}
+
+.adminsignup{
+	vertical-align: bottom;
+}
+form label {
+    color: #FFFFFE;
+    margin-right: 20px;
+    letter-spacing: 2px;
+}
+[placeholder="address"] {
+    margin-left: 12px;
+}
+input[type="submit"] {
+	padding-left: 20px;
+	padding-right: 20px;
+}
