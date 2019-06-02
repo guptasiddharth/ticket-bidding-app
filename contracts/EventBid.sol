@@ -43,8 +43,12 @@ contract EventBid {
             _;
     }
 
-    function fetchTicket(uint eventId) public view returns (uint, string memory, uint, address, uint) {
-        return (tickets[eventId].eventId,tickets[eventId].eventName,tickets[eventId].topBid,tickets[eventId].topBidder,tickets[eventId].time);
+    function fetchTicket(uint eventId) public view returns (uint, string memory, uint, address, uint, uint) {
+        if(now>=tickets[eventId].time){
+        return (tickets[eventId].eventId,tickets[eventId].eventName,tickets[eventId].topBid,tickets[eventId].topBidder,tickets[eventId].time,1);
+        }else{
+        return (tickets[eventId].eventId,tickets[eventId].eventName,tickets[eventId].topBid,tickets[eventId].topBidder,tickets[eventId].time,0);
+        }
     }
 
     function generateEvent(string memory name, uint time) public onlyManager(msg.sender) {
@@ -62,7 +66,7 @@ contract EventBid {
         require(eventCount>0);
         if(now>=tickets[eventId].time)
             biddingClose(eventId);
-
+        require(now<tickets[eventId].time);
         require(msg.value > tickets[eventId].topBid);
 
         if (tickets[eventId].topBid != 0) {
@@ -74,6 +78,8 @@ contract EventBid {
     }
 
     function withdraw(uint eventId) public returns (bool) {
+        if(now>=tickets[eventId].time)
+            biddingClose(eventId);
         uint bidAmount = tickets[eventId].bids[msg.sender];
         if (bidAmount > 0) {
             tickets[eventId].bids[msg.sender] = 0;

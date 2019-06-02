@@ -19,10 +19,12 @@ class Theme extends React.Component{
 
 		render(){
 		return(	<div>
-				<Navbar currentPage={this.state.currentPage} brand='EXELIS' change={this.handleChange} />
+				<Navbar currentPage={this.state.currentPage} brand='TICKET BIDDING' change={this.handleChange} />
 				<Page currentPage={this.state.currentPage} 
 					candidates={this.props.candidates}
                     bidEvent={this.props.bidEvent}
+                    endBidding={this.props.endBidding}
+                    withdraw={this.props.withdraw}
                     addEvent={this.props.addEvent}
                     updateEvents={this.props.updateEvents} />
 			</div>

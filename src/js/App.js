@@ -28,7 +28,9 @@ class App extends React.Component {
     this.updateEvents = this.updateEvents.bind(this);
     this.addEvent = this.addEvent.bind(this);
     this.bidEvent = this.bidEvent.bind(this);
-
+    this.endBidding = this.endBidding.bind(this);
+    this.withdraw = this.withdraw.bind(this);
+ 
   }
 
   componentDidMount() {
@@ -55,6 +57,22 @@ class App extends React.Component {
   bidEvent(eventId, account, amount) {
     console.log("eventId ",eventId.toNumber()," account ",account," amount ",amount)
     this.daoInstance.bid(eventId, { from: account, value: amount, gas:500000 }).then((result) =>
+      console.log(result)
+    )
+    this.updateEvents();
+  }
+
+  endBidding(eventId) {
+    console.log("eventId ",eventId.toNumber())
+    this.daoInstance.biddingClose(eventId, { from: this.state.account, gas:500000 }).then((result) =>
+      console.log(result)
+    )
+    this.updateEvents();
+  }
+
+  withdraw(eventId,account) {
+    console.log("eventId ",eventId.toNumber())
+    this.daoInstance.withdraw(eventId, { from: account, gas:500000 }).then((result) =>
       console.log(result)
     )
     this.updateEvents();
@@ -87,6 +105,8 @@ class App extends React.Component {
                     account={this.state.account}
                     candidates={this.state.candidates}
                     bidEvent={this.bidEvent}
+                    endBidding={this.endBidding}
+                    withdraw={this.withdraw}
                     updateEvents={this.updateEvents}
                     addEvent={this.addEvent} />
             </div>

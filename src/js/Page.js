@@ -11,7 +11,7 @@ import PublicProjects from './PublicProjects'
 					{(() => {
 				        switch (this.props.currentPage) {
 				          case "addProjects": return <AddProject candidates={this.props.candidates} bidEvent={this.props.bidEvent} addEvent={this.props.addEvent} updateEvents={this.props.updateEvents} />;
-				          case "publicProjects": return <PublicProjects candidates={this.props.candidates} bidEvent={this.props.bidEvent} updateEvents={this.props.updateEvents} addEvent={this.props.addEvent} />;
+				          case "publicProjects": return <PublicProjects withdraw={this.props.withdraw} endBidding={this.props.endBidding} candidates={this.props.candidates} bidEvent={this.props.bidEvent} updateEvents={this.props.updateEvents} addEvent={this.props.addEvent} />;
 				    	}
 				    })()}
 					 

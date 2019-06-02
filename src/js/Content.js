@@ -9,6 +9,8 @@ class Content extends React.Component {
         <Theme candidates={this.props.candidates}
                     bidEvent={this.props.bidEvent}
                     addEvent={this.props.addEvent}
+                    endBidding={this.props.endBidding}
+                    withdraw={this.props.withdraw}
                     updateEvents={this.props.updateEvents} />
         <hr/>
         <p> Account: {this.props.account}</p>
